@@ -1,0 +1,17 @@
+.landing{
+    background-image: url('https://images.pexels.com/photos/1570264/pexels-photo-1570264.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+
+    .landing-content{
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        color: var(--ion-color-light-contrast);
+    }
+}

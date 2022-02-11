@@ -1,0 +1,29 @@
+<app-header title="Liste des oeuvres"></app-header>
+
+<ion-content>
+  <section>
+    <div *ngIf="artworks; else error">
+      <ion-card *ngFor="let artwork of artworks">
+        <ion-card-header>
+          <ion-card-title>{{ artwork.name }}</ion-card-title>
+          <ion-card-subtitle>{{ artwork.localisation }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <img [src]="artwork.picture" [alt]="artwork.name" class="cover">
+          <ion-card-subtitle>{{ artwork.date|date:'dd-MM-yyyy' }}</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ng-template #error>
+      <app-error></app-error>
+    </ng-template>
+  </section>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/add" color="light">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

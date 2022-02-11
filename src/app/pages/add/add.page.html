@@ -1,0 +1,26 @@
+<app-header title="Ajouter une oeuvre"></app-header>
+
+<ion-content>
+  <form #artworkForm="ngForm" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label>Nom*</ion-label>
+      <ion-input [(ngModel)]="artwork.name" name="name" required minlength="3" maxlength="60" #name="ngModel">
+      </ion-input>
+    </ion-item>
+    <app-error *ngIf="!name.valid && name.touched" message="Vous devez saisir un nom entre 3 et 60 caractères"></app-error>
+    
+    <ion-item>
+      <ion-label>URL de l'image*</ion-label>
+      <ion-input [(ngModel)]="artwork.picture" name="picture" required pattern="https://.*" #picture="ngModel">
+      </ion-input>
+    </ion-item>
+    <app-error *ngIf="!picture.valid && picture.touched" message="Vous devez saisir une URL valide"></app-error>
+    
+    <ion-item>
+      <ion-label>Date de création de l'oeuvre*</ion-label>
+    </ion-item>
+    <ion-datetime presentation="date" locale="fr-FR" [(ngModel)]="artwork.date" name="date" required #date="ngModel"></ion-datetime>
+
+    <ion-button type="submit" expand="full" [disabled]="!artworkForm.form.valid">Ajouter</ion-button>
+  </form>
+</ion-content>
